@@ -1,11 +1,9 @@
 import random
 from time import sleep
 import pygame
-
 print("**********************************")
 print("\033[34m Bem vindo ao jogo de adivinhação\033[m")
 print("**********************************")
-
 numero_secreto = random.randrange(1, 101)
 print('Sou seu PC... Acabei de pensar em um número entre 0 e 100.')
 print('Será que você consegue adivinhar qual foi? ')
@@ -28,7 +26,7 @@ else:
     total_de_tentativas = 5
 
 while rodada <= total_de_tentativas:
-    print("tentativa {} de {}".format(rodada, total_de_tentativas))
+    print(f'tentativa {rodada} de {total_de_tentativas}')
 
     chute = int(input("Digite o seu numero entre 1 e 100: "))
     print('PROCESSANDO....')
@@ -39,7 +37,7 @@ while rodada <= total_de_tentativas:
     menor = chute < numero_secreto
 
     if acertou:
-        print("PARABÉNS!!!, Você acertou e fez {} pontos!!".format(pontos))
+        print(f'PARABÉNS!!!, Você acertou e fez {pontos} pontos!!')
         pygame.init()
         pygame.mixer.music.load('0000397_1.mp3')
         pygame.mixer.music.play()
@@ -51,11 +49,11 @@ while rodada <= total_de_tentativas:
         if maior:
             print("Você errou. O seu chute foi maior que o numero secreto!")
             if rodada == total_de_tentativas:
-                print("O numero secreto era {}. Você fez {} pontos".format(numero_secreto, pontos))
+                print(f'O numero secreto era {numero_secreto}. Você fez {pontos} pontos')
         elif menor:
             print("Você errou. O seu chute foi menor que o número secreto!")
             if rodada == total_de_tentativas:
-                print("VOCÊ PERDEU!! O numero secreto era {}." "Você fez \033[32m{}\033[m pontos".format(numero_secreto,pontos))
+                print(f'VOCÊ PERDEU!! O numero secreto era {numero_secreto}." "Você fez {pontos} pontos')
                 pygame.init()
                 pygame.mixer.music.load('Toques_Som_de_Derrota.mp3')
                 pygame.mixer.music.play()
